@@ -19,7 +19,8 @@ function AddNewTodo() {
     const [time, setTime] = useState(new Date())
 
     // Use the useMedia hook to check the screen size
- 
+    //todo add jalali calendar support 
+    //todo add persian language support
     
     return (
         <div className="AddNewTodo">
