@@ -4,7 +4,7 @@ import Next7Days from './Next7Days'
 import { TodoContext } from '../context'
 
 function Todos(){
-   const { selectedProject } = useContext(TodoContext)
+    const selectedProject = "today"
 
     const todos = [
         {
