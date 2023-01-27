@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import CloudDoneIcon from '@mui/icons-material/CloudDone';
 
 import { calendarItems } from '../constants'
+import { TodoContext } from '../context'
+
 
 function Calendar() {
-    
+    // Context
+    const { setSelectedProject } = useContext(TodoContext)    
     return (
         <div className='Calendar'>
             <div className="header">
@@ -22,7 +25,11 @@ function Calendar() {
             <div className="items">
                 {
                     calendarItems.map( item => 
-                        <div className="item" key={item}>
+                        <div
+                                className="item" 
+                                key={item}
+                                onClick={() => setSelectedProject(item)}
+                        >
                             {item}
                         </div>
                     )

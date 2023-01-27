@@ -1,19 +1,22 @@
-import React , { useState } from 'react'
+import React, {useContext, useState} from 'react'
+import { Pencil, XCircle } from 'react-bootstrap-icons'
 import Modal from './Modal'
 import RenameProject from './RenameProject'
+import { TodoContext } from '../context'
 
-//Icons
+function Project({project, edit}){
+    // CONTEXT
+   const { setSelectedProject } = useContext(TodoContext)
 
-import BorderColorIcon from '@mui/icons-material/BorderColor';
-
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-
-function Project({project, edit}) {
+    // STATE
     const [showModal, setShowModal] = useState(false)
-    
+
     return (
         <div className='Project'>
-            <div className="name">
+            <div
+                className="name"
+               onClick={ () => setSelectedProject(project.name)}
+            >
                 {project.name}
             </div>
             <div className="btns">
@@ -24,10 +27,10 @@ function Project({project, edit}) {
                             className="edit"
                             onClick={ () => setShowModal(true)}
                         >
-                            <BorderColorIcon size="13" />
+                            <Pencil size="13" />
                         </span>
                         <span className="delete">
-                            <HighlightOffIcon size="13" />
+                            <XCircle size="13" />
                         </span>
                     </div>
                     :
